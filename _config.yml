@@ -8,12 +8,12 @@
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 #--------------------------
 
-title: ColdFusionX                          # the main title
+title: Info-Sec Blog                          # the main title
 
-tagline: CTF Player | Pentester | InfoSec Enthusiast # it will display as the sub-title
+tagline: Penetration Tester | Ethical Hacker | CTF Player # it will display as the sub-title
           
 description: >-                        # used by seo meta and the atom feed
-  Realm of Knowledge
+  Welcome to my Info-Sec Blog
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'https://sidchn.github.io'
