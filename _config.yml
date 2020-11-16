@@ -13,7 +13,7 @@ title: sidchn                          # the main title
 tagline: Penetration Tester | Ethical Hacker | CTF Player # it will display as the sub-title
           
 description: >-                        # used by seo meta and the atom feed
-  Realm of Knowledge
+  Welcome to my Info-Sec Blog
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'https://sidchn.github.io'
@@ -33,8 +33,8 @@ social:
   email: sidchn@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/ColdFusionX_      # change to your twitter homepage
-    - https://github.com/ColdFusionX       # change to your github homepage
+    - https://twitter.com/sidchn_20      # change to your twitter homepage
+    - https://github.com/sidchn       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
