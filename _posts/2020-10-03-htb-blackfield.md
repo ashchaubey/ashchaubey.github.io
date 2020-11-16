@@ -181,7 +181,7 @@ smb: \>
 All these directories are empty, but the names of these directories look like usernames,<br>
 let's make a wordlist awk can help us in doing this.
 Copy and paste the above output in a file usernames.txt
-```shellsid@kali:~$ awk '{ print $1 }' usernames.txt > users.lst```
+```sid@kali:~$ awk '{ print $1 }' usernames.txt > users.lst```
 ### Generating TGT with help of GetNPUsers.py
 
 We can use GetNPUsers.py from the impacket tool which can check if there are any valid usernames and if they don't require Kerberos pre-authentication(PREAUTH) enabled.<br>
