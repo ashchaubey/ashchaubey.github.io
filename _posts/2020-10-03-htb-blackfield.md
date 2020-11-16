@@ -2,6 +2,10 @@
 layout: post
 author: Siddhant Chouhan
 title: Hack The Box Blackfield Writeup
+date: 2020-10-03 12:20:00 +0530
+categories: [HackTheBox,Windows Machines]
+tags: [hackthebox, Blackfield, ctf, smbclient, kerberos, as-rep-roast, hashcat, bloodhound, bloodhound-py, rpc-password-reset, mimikatz, evil-winrm, sebackupprivilege, diskshadow, ntds, system, secretsdump, hash]
+image: /assets/img/Posts/Blackfield.png
 ---
 <p class= "aligncenter" >
   <img src="assets/images/blackfield-logo.png" class="center">
