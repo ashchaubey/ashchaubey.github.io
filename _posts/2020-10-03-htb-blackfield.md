@@ -12,12 +12,12 @@ image: /assets/img/Posts/Blackfield.png
 
 This windows box required a lot of enumeration and was focussed on Active Directory.
 It starts with us finding anonymous access to a smb share which had a lot of directories which turn out be usernames.
-We pass the username list we get to Kerberos with help of <code class="language-plaintext highlighter-rouge">GetNPUsers.py</code> for generating TGT for valid users and cracking the hash we get with help of hashcat. 
+We pass the username list we get to Kerberos with help of <code class="language-plaintext highlighter-rouge">GetNPUsers.py</code> for generating TGT for valid users and cracking the hash we get with help of hashcat i.e. <code class="language-plaintext highlighter-rouge">AS-REP Roasting</code>.
 Then we are able to login into rpcclient and change the password of another user, getting access to another smb share.
 The smb share contained a zip file which had a DMP file (a memory dump file).
 We use <code class="language-plaintext highlighter-rouge">mimikatz</code> on the DMP file and get the NTLM hash for a user on the box.
 After logging in with help of <code class="language-plaintext highlighter-rouge">Evil-WinRM</code> we find that the user svc_backup has <code class="language-plaintext highlighter-rouge">SeBackupPrivelege</code> which means we can backup files.
-So backup the <code class="language-plaintext highlighter-rouge">ntds.dit</code>file and the registry SYSTEM file, now we can use secretsdump.py to get the NTLM hash of the Administrator.
+So backup the <code class="language-plaintext highlighter-rouge">ntds.dit</code> file and the registry SYSTEM file, now we can use secretsdump.py to get the NTLM hash of the Administrator.
 Now we can use Evil-WinRM to login as Administrator.
  
 ## Enumeration
