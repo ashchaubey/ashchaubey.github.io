@@ -8,7 +8,7 @@ tags: [hackthebox, Blackfield, ctf, smbclient, kerberos, as-rep-roast, hashcat, 
 image: /assets/img/Posts/Blackfield.png
 ---
 
-## Overview
+## Overview:
 
 This windows box required a lot of enumeration and was focussed on Active Directory.
 It starts with us finding anonymous access to a smb share which had a lot of directories which turn out be usernames.
