@@ -3,7 +3,6 @@ layout: post
 author: Siddhant Chouhan
 title: Death Bell CTF Writeup
 date: 2020-06-23 12:20:00 +0530
-categories: [HackTheBox,Windows Machines]
 tags: [ctf]
 image: /assets/img/Posts/deathbell-ctf.png
 ---
