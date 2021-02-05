@@ -128,7 +128,7 @@ Now the thing is if SSTI did happen where did it reflect? On checking out /archi
 
   Great we did the injection successfully now we have to find out how can we turn this injection into Remote Code Execution.
 
-  (https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/)[https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/]
+  [https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2](https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/)
   
   
   <img src="/assets/img/Posts/Doctor/rce-payload.png" class="center">
@@ -200,7 +200,7 @@ shaun:Guitar123
 We are able to login, but now we have to find how can we do privilege escalation via splunk.
 
 On googling splunk privilege escalation, we get the following exploit.
-(https://github.com/cnotin/SplunkWhisperer2)[https://github.com/cnotin/SplunkWhisperer2]
+[https://github.com/cnotin/SplunkWhisperer2](https://github.com/cnotin/SplunkWhisperer2)
 
 ```shell
 ┌─[sid@parrot]─[~/Documents/flags/hackthebox/linux-machines/doctor/SplunkWhisperer2/PySplunkWhisperer2]                         
