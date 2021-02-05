@@ -133,7 +133,7 @@ Now the thing is if SSTI did happen where did it reflect? On checking out /archi
   
   <img src="/assets/img/Posts/Doctor/rce-payload.png" class="center">
 
-  <img src="/assets/img/Posts/Doctor/enum-home.png" class="center">
+  <img src="/assets/img/Posts/Doctor/rce-test.png" class="center">
 
   <img src="/assets/img/Posts/Doctor/archive-home.png" class="center">
 
