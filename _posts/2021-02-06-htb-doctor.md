@@ -141,7 +141,9 @@ Now the thing is if SSTI did happen where did it reflect? On checking out /archi
   I will drop my public ssh key (id_rsa.pub) in the web user's home directory i.e. /home/web/.ssh/authrized_keys.
 
 
-  <img src="/assets/img/Posts/Doctor/dropping-public-key.png" class="center">
+  <img src="/assets/img/Posts/Doctor/mkdir-ssh.png" class="center">
+ 
+ <img src="/assets/img/Posts/Doctor/dropping-public-key.png" class="center">
 
   ```shell
 ┌─[sid@parrot]─[~/Documents/flags/hackthebox/linux-machines/doctor]
