@@ -8,7 +8,7 @@ image: /assets/img/Posts/doctor.png
 ---
 ## Overview:
 
-The box starts with us finding a <code class="language-plaintext highlighter-rouge">python flask jinja 2 webapp</code> on port 80 and we have <code class="language-plaintext highlighter-rouge">splunk</code> running on port 8089 , We do <code class="language-plaintext highlighter-rouge">Server-Side Template Injection</code> to get remote code execution. Then drop our public ssh key and get a shell on the box as the user web. Turns out the user web is part of the adm group which means we can read log files. We find a password in one of the log files and get a shell as the user shaun. We exploit Splunk Forwarder remotely using <code class="language-plaintext highlighter-rouge">SplunkWhisperer2</code> with shaun's credentials and we root the box.
+The box starts with us finding a <code class="language-plaintext highlighter-rouge">python flask jinja 2</code> webapp on port 80 and we have <code class="language-plaintext highlighter-rouge">splunk</code> running on port 8089 , We do <code class="language-plaintext highlighter-rouge">Server-Side Template Injection</code> to get remote code execution. Then drop our public ssh key and get a shell on the box as the user web. Turns out the user web is part of the adm group which means we can read log files. We find a password in one of the log files and get a shell as the user shaun. We exploit Splunk Forwarder remotely using <code class="language-plaintext highlighter-rouge">SplunkWhisperer2</code> with shaun's credentials and we root the box.
 
 ## Reconnaissance
 ### Nmap Scan
@@ -82,7 +82,7 @@ Looks like we have Splunk running on port 8089, Splunk is a data analysis tool a
 
 On clicking services we get a http basic authentication prompt trying default credentials like admin:admin, admin:password etc. doesn't work, moving on to enumerate port 80 further.
 
-### Fiddling around with Doctos Secure Messaging
+### Fiddling around with Doctor Secure Messaging
 
 First I will register a new account. Then I will head over to the new post page.
 
@@ -103,7 +103,7 @@ I will come back to this later.
 
   <img src="/assets/img/Posts/Doctor/checkingout-newpost.png" class="center">
 
-  <img src="/assets/img/Posts/Doctor/looks-like-a-template.png" class="center">
+  <img src="/assets/img/Posts/Doctor/template-look.png" class="center">
 
   This looks like a blog where the server would just change the username, title and the content. Templates allow easy code reuse only changing the the required fields which can be fetched from the server.
 
