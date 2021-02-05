@@ -135,7 +135,7 @@ Now the thing is if SSTI did happen where did it reflect? On checking out /archi
 
   <img src="/assets/img/Posts/Doctor/enum-home.png" class="center">
 
-  I will drop my ssh publick key in shaun's directory.
+  I will drop my ssh public key in shaun's directory.
 
   ```shell
 ┌─[sid@parrot]─[~/Documents/flags/hackthebox/linux-machines/doctor]
