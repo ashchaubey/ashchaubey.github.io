@@ -51,13 +51,13 @@ html[mode=dark] {
 }
 
 html, body {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 body {
   line-height: 1.75rem;
-  background: var(--body-bg);
-  color: var(--text-color);
+  #background: var(--body-bg);
+  #color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif;
 }
