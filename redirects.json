@@ -5,7 +5,7 @@
 			"type": "string",
 			"comment": "this rule is applied first",
 			"expression": "/thm-ra",
-			"location": "/thm-ra/"
+			"location": "/posts/thm-ra/"
 		},
 		{
 			"type": "wildcard",
