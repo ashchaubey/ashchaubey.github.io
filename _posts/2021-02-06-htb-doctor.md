@@ -12,11 +12,9 @@ The box starts with us finding a <code class="language-plaintext highlighter-rou
 
 ## Reconnaissance
 ### Nmap Scan
-```shell
+```sql
 
-┌─[sid@parrot]─[~/Documents/flags/hackthebox/linux-machines/doctor]
-└──╼ $ nmap -sC -sV -oN nmap_scan -v -Pn 10.10.10.209
-# Nmap 7.80 scan initiated Sun Sep 27 13:31:18 2020 as: nmap -sC -sV -oN nmap_scan -v -Pn 10.10.10.209
+Nmap 7.80 scan initiated Sun Sep 27 13:31:18 2020 as: nmap -sC -sV -oN nmap_scan -v -Pn 10.10.10.209
 
 Nmap scan report for 10.10.10.209
 Host is up (0.16s latency).

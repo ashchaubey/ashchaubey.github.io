@@ -23,7 +23,7 @@ Now we can use Evil-WinRM to login as Administrator.
 ## Enumeration
 ### Nmap Scan
  
-```shell
+```sql
 sid@kali:~$ nmap -sC -sV -oN nmap_scan 10.10.10.192
 # Nmap 7.80 scan initiated Tue Aug  4 17:17:38 2020 as: nmap -sC -sV -oN nmap_scan 10.10.10.192
 Nmap scan report for 10.10.10.192
