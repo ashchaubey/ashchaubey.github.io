@@ -10,7 +10,7 @@ image: /assets/img/Posts/roasted.png
 
 ## Overview
 
-This windows box starts with us finding that we have anonymous read access to the <code class="language-plaintext highlighter-rouge">IPC$</code> smb share thus leading to enumeration of domain users with help of impacket's <code class="language-plaintext highlighter-rouge">lookupsid.py</code>. We then pass the username list to kerberos and perform <code class="language-plaintext highlighter-rouge">AS-REP Roasting</code>, We get a <code class="language-plaintext highlighter-rouge"> KRB5 ASREP</code> hash which we crack using <code class="language-plaintext highlighter-rouge">hashcat </code>. With the credentials we get we then perform a <code class="language-plaintext highlighter-rouge">kerberoasting</code> attack and get a <code class="language-plaintext highlighter-rouge">KRB5 TGS</code> hash which after cracking we are able to get on the box via <code class="language-plaintext highlighter-rouge">Evil-WinRM</code>. We find that we have read access to another share now and we find the a visual basic script which has hard coded credentials for a user which turns out to be a domain admin. We perform a <code class="language-plaintext highlighter-rouge">DC Sync</code> to get the administrator hash and login to the box via Evil-WinRM.
+This windows box involves 3 Active Directory attacks AS-REP Roasting followed by Kerberoasting and finally a DC Sync to get the administrator NTLM hash. The box starts with us finding out that we have anonymous read access to the <code class="language-plaintext highlighter-rouge">IPC$</code> smb share which means we can enumerate domain users with help of impacket's <code class="language-plaintext highlighter-rouge">lookupsid.py</code>. We then pass the username list to kerberos and perform <code class="language-plaintext highlighter-rouge">AS-REP Roasting</code>, We get a <code class="language-plaintext highlighter-rouge"> KRB5 ASREP</code> hash which we crack using <code class="language-plaintext highlighter-rouge">hashcat </code>. With the credentials we get we then perform a <code class="language-plaintext highlighter-rouge">kerberoasting</code> attack and get a <code class="language-plaintext highlighter-rouge">KRB5 TGS</code> hash which after cracking we are able to get on the box via <code class="language-plaintext highlighter-rouge">Evil-WinRM</code>. We find that we have read access to another share now and inside that share we find a visual basic script which has hard coded credentials for a user which turns out to be a domain admin. We perform a <code class="language-plaintext highlighter-rouge">DC Sync</code> to get the administrator hash and login to the box via Evil-WinRM.
 
 --------------------- | ---------------------  
 Machine Link          | [https://tryhackme.com/room/vulnnetroasted](https://tryhackme.com/room/vulnnetroasted)      
@@ -23,9 +23,8 @@ Machine Created by    | [TheCyb3rW0lf](https://tryhackme.com/p/TheCyb3rW0lf)
 ## Enumeration
 
 ### Nmap Scan
-```bash
-┌──(sid㉿kali)-[~/pentest/tryhackme/vulnNet-roasted]
-└─$ sudo nmap -p- -T4 10.10.171.0 -sC -sV -v -Pn -oN nmap-scan
+```sql
+
 Nmap scan report for 10.10.171.0
 Host is up, received echo-reply ttl 127 (0.19s latency).
 Scanned at 2021-05-18 16:58:25 IST for 117s
