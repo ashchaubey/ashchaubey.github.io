@@ -2,7 +2,7 @@
 layout: post
 author: Siddhant Chouhan
 title: TryHackMe VulnNet: Roasted Writeup
-date: 2021-05-18 12:20:00 +0530
+date: 2021-05-17 12:20:00 +0530
 categories: [TryHackMe, Windows Machines]
 tags: [tryhackme, VulnNet, ctf, crackmapexec, smbclient, kerberos, as-rep-roast, hashcat, kerberoasting, impacket, smbmap, evil-winrm]
 image: /assets/images/thm-roasted.png
@@ -10,7 +10,7 @@ image: /assets/images/thm-roasted.png
 
 ## Overview
 
-This windows box starts with us finding that we have anonymous read access to the <code class="language-plaintext highlighter-rouge">IPC$</code> smb share thus leading to enumeration of domain users with help of impacket's <code class="language-plaintext highlighter-rouge">lookupsid.py</code>. We then pass the username list to kerberos and perform <code class="language-plaintext highlighter-rouge">AS-REP Roasting</code>, We get a <code class="language-plaintext highlighter-rouge"> KRB5ASREP </code> hash which we crack using <code class="language-plaintext highlighter-rouge">hashcat </code>. 
+This windows box starts with us finding that we have anonymous read access to the <code class="language-plaintext highlighter-rouge">IPC$</code> smb share thus leading to enumeration of domain users with help of impacket's <code class="language-plaintext highlighter-rouge">lookupsid.py</code>. We then pass the username list to kerberos and perform <code class="language-plaintext highlighter-rouge">AS-REP Roasting</code>, We get a <code class="language-plaintext highlighter-rouge"> KRB5 ASREP</code> hash which we crack using <code class="language-plaintext highlighter-rouge">hashcat </code>. With the credentials we get we then perform a kerberoasting attack and get a <code class="language-plaintext highlighter-rouge">KRB5 TGS</code> hash which after cracking we are able to get on the box via <code class="language-plaintext highlighter-rouge">Evil-WinRM</code>. We find that we have read access to another share now and we find the a visual basic script which has hard coded credentials for a user which turns out to be a domain admin. We perform a <code class="language-plaintext highlighter-rouge">DC Sync</code> to get the administrator hash and login to the box via Evil-WinRM.
 
 --------------------- | ---------------------  
 Machine Link          | [https://tryhackme.com/room/vulnnetroasted](https://tryhackme.com/room/vulnnetroasted)      
