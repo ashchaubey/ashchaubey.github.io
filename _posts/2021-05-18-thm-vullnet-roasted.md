@@ -1,11 +1,11 @@
 ---
 layout: post
 author: Siddhant Chouhan
-title: TryHackMe VulnNet: Roasted Writeup
+title: TryHackMe VulnNet - Roasted Writeup
 date: 2021-05-17 12:20:00 +0530
 categories: [TryHackMe, Windows Machines]
 tags: [tryhackme, VulnNet, ctf, crackmapexec, smbclient, kerberos, as-rep-roast, hashcat, kerberoasting, impacket, smbmap, evil-winrm]
-image: /assets/images/thm-roasted.png
+image: /assets/img/roasted.png
 ---
 
 ## Overview
