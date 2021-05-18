@@ -5,7 +5,7 @@ title: TryHackMe VulnNet - Roasted Writeup
 date: 2021-05-17 12:20:00 +0530
 categories: [TryHackMe, Windows Machines]
 tags: [tryhackme, VulnNet, ctf, crackmapexec, smbclient, kerberos, as-rep-roast, hashcat, kerberoasting, impacket, smbmap, evil-winrm]
-image: /assets/img/roasted.png
+image: /assets/img/Posts/roasted.png
 ---
 
 ## Overview
@@ -23,7 +23,7 @@ Machine Created by    | [TheCyb3rW0lf](https://tryhackme.com/p/TheCyb3rW0lf)
 ## Enumeration
 
 ### Nmap Scan
-```shell
+```sql
 ┌──(sid㉿kali)-[~/pentest/tryhackme/vulnNet-roasted]
 └─$ sudo nmap -p- -T4 10.10.171.0 -sC -sV -v -Pn -oN nmap-scan
 Nmap scan report for 10.10.171.0
@@ -87,7 +87,7 @@ Nmap done: 1 IP address (1 host up) scanned in 118.24 seconds
            Raw packets sent: 24 (1.032KB) | Rcvd: 21 (908B)
 
 ```
-From the nmap scan we find that the Domain Name is <code class="rouge">vulnnet-rst.local</code>.
+From the nmap scan we find that the Domain Name is <code class="language-plaintext highlighter-rouge">vulnnet-rst.local</code>.
 
 ### Enumerating SMB Shares
 
@@ -106,7 +106,7 @@ From the nmap scan we find that the Domain Name is <code class="rouge">vulnnet-r
         VulnNet-Enterprise-Anonymous                            READ ONLY       VulnNet Enterprise Sharing
 
 ```
-Since the IPC$ Share is readable we can enumerate valid domain users via impacket's <code class="rouge">lookupsid.py</code>.
+Since the IPC$ Share is readable we can enumerate valid domain users via impacket's <code class="language-plaintext highlighter-rouge">lookupsid.py</code>.
 
 ```shell
 ┌──(sid㉿kali)-[~/pentest/tryhackme/vulnNet-roasted]
