@@ -15,10 +15,10 @@
   --inline-code-bg: var(--highlight-bg-color);
 
   .highlight {
-    .gp { color: #818c96; }
+    .gp { color: #f8f8f2; }
   }
 
-  pre { color: #818c96; } /* override Bootstrap */
+  pre { color: #f8f8f2; } /* override Bootstrap */
   kbd { background-color: black; }
 
   /* syntax highlight colors from https://raw.githubusercontent.com/jwarby/pygments-css/master/monokai.css */
