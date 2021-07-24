@@ -10,7 +10,7 @@
 
 title: sidchn                          # the main title
 
-tagline: OSCP | Penetration Testing | CTFs # it will display as the sub-title
+tagline: Penetration Testing | CTFs # it will display as the sub-title
           
 description: >-                        # used by seo meta and the atom feed
   Welcome to my Info-Sec Blog
