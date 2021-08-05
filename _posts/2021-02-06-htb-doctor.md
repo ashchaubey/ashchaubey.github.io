@@ -8,7 +8,7 @@ image: /assets/img/Posts/doctor.png
 ---
 ## Overview:
 
-The box starts with us finding a <code class="language-plaintext highlighter-rouge">python flask jinja 2</code> webapp on port 80 and we have <code class="language-plaintext highlighter-rouge">splunk</code> running on port 8089 , We do <code class="language-plaintext highlighter-rouge">Server-Side Template Injection</code> to get remote code execution. Then drop our public ssh key and get a shell on the box as the user web. Turns out the user web is part of the adm group which means we can read log files. We find a password in one of the log files and get a shell as the user shaun. We exploit Splunk Forwarder remotely using <code class="language-plaintext highlighter-rouge">SplunkWhisperer2</code> with shaun's credentials and we root the box.
+The box starts with us finding a <code class="language-plaintext highlighter-rouge">python flask jinja 2</code> webapp on port 80 and we have <code class="language-plaintext highlighter-rouge">splunk</code> running on port 8089 , We perform a <code class="language-plaintext highlighter-rouge">Server-Side Template Injection</code> to get remote code execution. Then drop our public ssh key and get a shell on the box as the user web. Turns out the user web is part of the adm group which means we can read log files. We find a password in one of the log files and get a shell as the user shaun. We exploit Splunk Forwarder remotely using <code class="language-plaintext highlighter-rouge">SplunkWhisperer2</code> with shaun's credentials and we root the box.
 
 ## Reconnaissance
 ### Nmap Scan
