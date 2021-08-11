@@ -12,8 +12,8 @@ title: $ whoami
 
 <!-- The unordered list immediately after the h1 will be formatted on a single
 line. It is intended to be used for contact details -->
-- <sidchn@mail.com>
 - [https://www.linkedin.com/in/siddhant-chouhan/](https://www.linkedin.com/in/siddhant-chouhan/)
+- <sidchn@mail.com>
 - New Delhi, India
 
 <!-- The paragraph after the h1 and ul and before the first h2 is optional. It
@@ -24,7 +24,7 @@ A Cyber Security Enthusiast with knowledge of network and web application penetr
 
 <!-- You have to wrap the "left" and "right" half of these headings in spans by
 hand -->
-### <span>Cyber Security Intern, Andy Infosec</span> <span>September 2020 -- November 2020</span>
+### <span>Cyber Security Intern, Andy Infosec</span> <span>(September 2020 -- November 2020)</span>
 
 - Researched about API Security and OWASP API Top 10.
 - Worked on tools like Burp Suite and Postman for API testing.
@@ -32,7 +32,7 @@ hand -->
 
 ## Education
 
-### <span>University of Petroleum and Energy Studies, Dehradun</span> <span>2018 -- 2022</span>
+### <span>University of Petroleum and Energy Studies, Dehradun</span> <span>(2018 -- 2022)</span>
 
   - B.tech Computer Science Engineering with specialization in Cyber Security and Forensics
 
