@@ -7,10 +7,6 @@ title: $ whoami
 # © 2017-2019 Cotes Chung
 # MIT License
 ---
-
-Welcome to my Info-Sec Blog, my name is Siddhant Chouhan, I am a cyber security enthusiast. Here you will find my hack the box, try-hack-me writeups and Infosec material. 
-
-
 <!-- The (first) h1 will be used as the <title> of the HTML page -->
 # Siddhant Chouhan
 
@@ -28,23 +24,11 @@ A Cyber Security Enthusiast with knowledge of network and web application penetr
 
 <!-- You have to wrap the "left" and "right" half of these headings in spans by
 hand -->
-### <span>Cyber Security Intern, Andy Infosec</span> <span>Dec 2013 -- Dec 2014</span>
+### <span>Cyber Security Intern, Andy Infosec</span> <span>September 2020 -- November 2020</span>
 
 - Researched about API Security and OWASP API Top 10.
 - Worked on tools like Burp Suite and Postman for API testing.
 - Wrote articles on OWASP API Top 10 and developed a room on tryhackme.com named ["Bookstore"](https://tryhackme.com/room/bookstoreoc) which is a boot2root CTF machine that involves basic web enumeration, REST API Fuzzing and reverse engineering a fairly simple custom binary.
-
-
-
-## 
-
-### <span>Miss Direction</span> <span>Aug 2016</span>
-
-A mapping engine that misguides you:
-
-   - Won award at AIHacks 2016
-   - Built by all women team of newbie programmers
-   - Using modern technologies such as GoogleMaps, Chrome Extension and Javascript
 
 ## Education
 
