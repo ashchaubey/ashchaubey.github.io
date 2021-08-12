@@ -13,7 +13,7 @@ title: $ whoami
 <!-- The unordered list immediately after the h1 will be formatted on a single
 line. It is intended to be used for contact details -->
 - [https://www.linkedin.com/in/siddhant-chouhan/](https://www.linkedin.com/in/siddhant-chouhan/)
-- <sidchn@gmail.com>
+- <0xfoxy@protonmail.com>
 - New Delhi, India
 
 <!-- The paragraph after the h1 and ul and before the first h2 is optional. It
