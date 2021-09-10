@@ -110,7 +110,7 @@ I will come back to this later.
 
 On googling about template injection in python flask we find that a framework called jinja2 which is used with flask is vulnerable to a technique called Server-Side Template Injection.
 
-> Server-Side Template Injection is possible when an attacker injects template directive as user input that can execute arbitrary code on the server. If you happen to view the source of a web page and see below code snippets then it is safe to guess that the application is using some template engine to render data.
+> Server-Side Template Injection is possible when an attacker injects template directive as user input that can execute arbitrary code on the server.
 
 Create a new post and inject \{\{ 7*7 }} if we are able to inject code then this payload should get evaluated.
 
